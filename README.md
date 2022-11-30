@@ -14,9 +14,9 @@ This network monitor is a Zeek script to measure the amount of traffic on the wi
 
 `polls`: the number of times the amount of traffic on the network will be pulled, before averaging.
 
-`average_max`: the highest acceptable average.
+`average_max`: the highest acceptable average, in bytes.
 
-`absolute_max`: the highest acceptable amount of traffic in a single poll.
+`absolute_max`: the highest acceptable amount of traffic in a single poll, in bytes.
 
 
 The script binds to the raw_packet event. This may be slow, depending on the amount of traffic, however that was not tested in this project. It is intended to be used on a sensor, or other hardware where the traffic going from a sensor can be measured. To run the script: `zeek -C -i ens160 traffic_monitor.zeek`, where ens160 is the interface you would like to listen to.
