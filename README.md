@@ -19,4 +19,10 @@ This network monitor is a Zeek script to measure the amount of traffic on the wi
 `absolute_max`: the highest acceptable amount of traffic in a single poll, in bytes.
 
 
-The script binds to the raw_packet event. This may be slow, depending on the amount of traffic, however that was not tested in this project. It is intended to be used on a sensor, or other hardware where the traffic going from a sensor can be measured. To run the script: `zeek -C -i ens160 traffic_monitor.zeek`, where ens160 is the interface you would like to listen to.
+The script binds to the raw_packet event. This may be slow, depending on the amount of traffic, however that was not tested in this project. It is intended to be used on a sensor, or other hardware where the traffic going from a sensor can be measured. 
+
+To run the script: `zeek -C -i ens160 traffic_monitor.zeek`, where ens160 is the interface you would like to listen to.
+
+## C Implementation
+
+There also exists an implementation using libpcap for this network tool. The main benefit of using this would be for performance reasons, because Zeek is simply not as fast when it comes to pipelining large amounts of traffic. However, due to security considerations, this version wasn't used. However, the files for this version can be found in `libpcap_implementation`
